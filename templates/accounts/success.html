@@ -1,6 +1,13 @@
-{% extends 'base.html' %}
+{% extends "blog/newbase.html" %}
+{% load static %}
+{% static "images" as baseUrl %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
 {% block content %}
-<head>
    <style>
       .center {
       position: absolute;
@@ -10,9 +17,7 @@
       transform: translate(-50%, -50%);
       }
    </style>
-</head>
-<body>
-   <div class="center">
+ <div class="container" style="width: 100%; background-color: #40e3ac; border-radius:5px; padding: 30px;">
       <h3>
          Thanks for the payment , Please check your email for further instruction!<i class="fas fa-check-circle"></i>
       </h3>
@@ -21,6 +26,5 @@
             FAQ
          </a>
       </h4>
-   </div>
-</body>
-{% endblock content %}
+ </div>
+{% endblock %}

@@ -420,28 +420,28 @@ def contact(request):
 
 @login_required(login_url='login')
 def basicpayment(request):
-    keyid = 'rzp_live_8iKdUKGqRVttUs'
-    keySecret = 'utpgdTG6iY9OXcRVwZ6pepLu'
+    keyid = 'rzp_live_Ov8XlxQ15IJQBh'
+    keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
     form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
-        amount = 999900
+        amount = int("999900") * 1
         order_receipt = 'order_rcptid_11'
         notes = {'BASIC'}
         client = razorpay.Client(auth=(keyid, keySecret))
         response_payment = client.order.create(dict(amount=amount, currency='INR'))
         order_id = response_payment['id']
         order_status = response_payment['status']
-        if order_status == 'crated':
+        if order_status == 'created':
             cold_coffee = ColdCoffe(
                 name=name,
                 amount=amount,
                 order_id=order_id
             )
             cold_coffee.save()
-            response_payment['name']=name
+            response_payment['name'] = name
 
-            form = CoffeePaymentForm(request.Post or None)
+            form = CoffeePaymentForm(request.POST or None)
             return render(request, 'accounts/payment.html', {'form': form, 'payment': response_payment})
 
     form = CoffeePaymentForm()
@@ -454,59 +454,134 @@ def success(request):
 
 
 def silverpayment(request):
-    keyid = 'rzp_live_8iKdUKGqRVttUs'
-    keySecret = 'utpgdTG6iY9OXcRVwZ6pepLu'
+    keyid = 'rzp_live_Ov8XlxQ15IJQBh'
+    keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    form = CoffeePaymentForm()
+
     if request.method == "POST":
         name = request.POST.get('name')
         amount = 1899900
         client = razorpay.Client(
             auth=(keyid, keySecret))
-        payment = client.order.create({'amount': amount, 'currency': 'INR',
-                                       'payment_capture': '1'})
-    return render(request, 'accounts/payment1.html')
+        payment = client.order.create(dict(amount=amount, currency='INR'))
+        response_payment = client.order.create(dict(amount=amount, currency='INR'))
+        order_id = response_payment['id']
+        order_status = response_payment['status']
+        if order_status == 'created':
+            cold_coffee = ColdCoffe(
+                name=name,
+                amount=amount,
+                order_id=order_id,
+            )
+            cold_coffee.save()
+            response_payment['name'] = name
+            form = CoffeePaymentForm(request.POST or None)
+            return render(request, 'accounts/payment1.html', {'form': form, 'payment': payment})
+    form = CoffeePaymentForm()
+    return render(request, 'accounts/payment1.html', {'form': form})
 
 
 def goldpayment(request):
-    keyid = 'rzp_live_8iKdUKGqRVttUs'
-    keySecret = 'utpgdTG6iY9OXcRVwZ6pepLu'
+    keyid = 'rzp_live_Ov8XlxQ15IJQBh'
+    keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
         amount = 3699900
         client = razorpay.Client(
             auth=(keyid, keySecret))
-        payment = client.order.create({'amount': amount, 'currency': 'INR',
-                                       'payment_capture': '1'})
-    return render(request, 'accounts/payment2.html')
+        response_payment = client.order.create(dict(amount=amount, currency='INR'))
+        order_id = response_payment['id']
+        order_status = response_payment['status']
+        if order_status == 'created':
+            cold_coffee = ColdCoffe(
+                name=name,
+                amount=amount,
+                order_id=order_id,
+            )
+            cold_coffee.save()
+            response_payment['name'] = name
+            form = CoffeePaymentForm(request.POST or None)
+            return render(request, 'accounts/payment2.html', {'form': form, 'payment': response_payment})
+    form = CoffeePaymentForm()
+    return render(request, 'accounts/payment2.html', {'form': form})
+
+
+def payment_status(request):
+    response = request.POST
+    keyid = 'rzp_live_Ov8XlxQ15IJQBh'
+    keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    params_dict = {
+        'razorpay_order_id': response['razorpay_order_id'],
+        'razorpay_payment_id': response['razor_payment_id'],
+        'razor_signature': response['razorpay_signature']
+    }
+
+    client = razorpay.Client(auth=(keyid, keySecret))
+
+    try:
+        status = client.utility.verify_payment_signature(params_dict)
+        cold_coffee = ColdCoffe.objects.get(order_id=response['razorpay_order_id'])
+        cold_coffee.razorpay_payment_id = response['razorpay_payment_id']
+        cold_coffee.paid = True
+        cold_coffee.save
+        return render(request, 'payment_status.html', {'status': True})
+    except:
+        return render(request, 'accounts/payment_status.html', {'status': False})
 
 
 def paltpayment(request):
-    keyid = 'rzp_live_8iKdUKGqRVttUs'
-    keySecret = 'utpgdTG6iY9OXcRVwZ6pepLu'
+    keyid = 'rzp_live_Ov8XlxQ15IJQBh'
+    keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
         amount = 5499900
         client = razorpay.Client(
             auth=(keyid, keySecret))
-        payment = client.order.create({'amount': amount, 'currency': 'INR',
-                                       'payment_capture': '1'})
-        client = razorpay.Client(auth=(os.getenv('razorpaykey'), os.getenv('razorpaysecret')))
-        response = client.order.create({'amount': amount, 'currency': 'INR', 'payment_capture': 1})
-        print(response)
-        context = {'response': response}
-    return render(request, 'accounts/payment3.html')
+        response_payment = client.order.create(dict(amount=amount, currency='INR'))
+        order_id = response_payment['id']
+        order_status = response_payment['status']
+        if order_status == 'created':
+            cold_coffee = ColdCoffe(
+                name=name,
+                amount=amount,
+                order_id=order_id,
+            )
+            cold_coffee.save()
+            response_payment['name'] = name
+            form = CoffeePaymentForm(request.POST or None)
+            return render(request, 'accounts/payment3.html', {'form': form, 'payment': response_payment})
+
+    form = CoffeePaymentForm()
+    return render(request, 'accounts/payment3.html', {'form': form})
 
 
 def expayment(request):
-    keyid = 'rzp_live_8iKdUKGqRVttUs'
-    keySecret = 'utpgdTG6iY9OXcRVwZ6pepLu'
+    keyid = 'rzp_live_Ov8XlxQ15IJQBh'
+    keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
         amount = 8199900
         client = razorpay.Client(
             auth=(keyid, keySecret))
-        payment = client.order.create({'amount': amount, 'currency': 'INR',
-                                       'payment_capture': '1'})
-    return render(request, 'accounts/payment4.html')
+        response_payment = client.order.create(dict(amount=amount, currency='INR'))
+        order_id = response_payment['id']
+        order_status = response_payment['status']
+        if order_status == 'created':
+            cold_coffee = ColdCoffe(
+                name=name,
+                amount=amount,
+                order_id=order_id,
+            )
+            cold_coffee.save()
+            response_payment['name'] = name
+            form = CoffeePaymentForm(request.POST or None)
+            return render(request, 'accounts/payment4.html', {'form': form, 'payment': response_payment})
+
+    form = CoffeePaymentForm()
+    return render(request, 'accounts/payment4.html', {'form': form})
 
 
 @csrf_exempt

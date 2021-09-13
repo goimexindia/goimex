@@ -1,4 +1,6 @@
 {% extends 'base1.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
 <head>
     <style>
@@ -13,7 +15,7 @@
 </head>
 
 <div class="center">
-    <form class="text-center border border-light p-5" action="success" method="POST">
+ <form class="text-center border border-light p-5" action="expayement" method="POST">
 
         {% csrf_token %}
         <a href="#"
@@ -30,23 +32,33 @@
             <strong>You have requested for the payment of Rs.81999/-</strong>
         </p>
 
-        <input type="name" name="name" id="name" required class="form-control mb-4" placeholder="Name">
+       <div class="container" style="width: 100%; background-color: #40e3ac; border-radius:5px; padding: 30px;">
+            {% crispy form%}
+        </div>
+
 
         <!-- RAZORPAY INTEGRATION HERE -->
 
-        <script src="https://checkout.razorpay.com/v1/checkout.js"
-                data-key='utpgdTG6iY9OXcRVwZ6pepLu'
-                data-amount="81999"
-                data-currency="INR"
-                data-order_id="{{user.id}}"
-        data-buttontext="Pay with Razorpay  "
-        data-name={{user.username}}
-        data-description="EXCLUSIVE MEMBERSHIP"
-        data-image="/static/images/exclusive.png"
-        data-prefill.name={{user.profile.organization}}
-        data-prefill.email={{user.email}}
-        data-theme.color="#F37254">
-        </script>
+
+        {% if payment %}
+        <form action="{% url 'payment_status' %}" method="POST">
+            {% csrf_token %}
+            <script src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key='rzp_live_Ov8XlxQ15IJQBh'
+                    data-amount="{{ payment.amount }}"
+                    data-currency="{{payment.currency}}"
+                    data-order_id="{{payment.id}}"
+                    data-buttontext="Pay with Razorpay  "
+                    data-name="Goimex Global India"
+                    data-description="executive MEMBERSHIP"
+                    data-image="/static/images/exclusive.png"
+                    data-prefill.name={{user.profile.organization}}
+                    data-prefill.email={{user.email}}
+                    data-theme.color="#F37254">
+            </script>
+            <input type="hidden" custom="HIDDEN ELEMENT" name="hidden">
+        </form>
+        {% endif %}
     </form>
 </div>
 </div>

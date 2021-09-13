@@ -1,7 +1,8 @@
 {% extends 'base1.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
-<head>
-    <style>
+<style>
         .center {
             position: absolute;
             left: 50%;
@@ -9,17 +10,19 @@
             transform: translate(-50%, -50%);
         }
 
-    </style>
-</head>
+
+
+</style>
+
 
 <div class="center">
-    <form class="text-center border border-light p-5" action="success" method="POST">
+    <form class="text-center border border-light p-5" action="silverpayement" method="POST">
 
         {% csrf_token %}
         <a href="#"
            title="">
             <img src="/static/images/membersilver.png"
-                  style="width: 30%; height: 30%"
+                 style="width: 30%; height: 30%"
                  alt=""
                  class="lazy" style="">
         </a>
@@ -29,25 +32,32 @@
         <p class="mb-3">
             <strong>You have requested for the payment of Rs.18999/-</strong>
         </p>
+        <div class="container" style="width: 100%; background-color: #40e3ac; border-radius:5px; padding: 30px;">
 
-        <input type="name" name="name" id="name" required class="form-control mb-4" placeholder="Name">
+            {% crispy form%}
+        </div>
 
-        <!-- RAZORPAY INTEGRATION HERE -->
-
-        <script src="https://checkout.razorpay.com/v1/checkout.js"
-                data-key='utpgdTG6iY9OXcRVwZ6pepLu'
-                data-amount="18999"
-                data-currency="INR"
-                data-order_id="{{user.id}}"
-        data-buttontext="Pay with Razorpay  "
-        data-name={{user.username}}
-        data-description="SILVER MEMBERSHIP"
-        data-image="/static/images/membersilver.png"
-        data-prefill.name={{user.profile.organization}}
-        data-prefill.email={{user.email}}
-        data-theme.color="#F37254">
-        </script>
+        {% if payment %}
+        <form action="{% url 'payment_status' %}" method="POST">
+            {% csrf_token %}
+            <script src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key='rzp_live_Ov8XlxQ15IJQBh'
+                    data-amount="{{ payment.amount }}"
+                    data-currency="{{payment.currency}}"
+                    data-order_id="{{payment.id}}"
+                    data-buttontext="Pay with Razorpay  "
+                    data-name="Goimex Global India"
+                    data-description="SILVER MEMBERSHIP"
+                    data-image="/static/images/membersilver.png"
+                    data-prefill.name={{user.profile.organization}}
+                    data-prefill.email={{user.email}}
+                    data-theme.color="#F37254">
+            </script>
+            <input type="hidden" custom="HIDDEN ELEMENT" name="hidden">
+        </form>
+        {% endif %}
     </form>
 </div>
-</div>
+
+
 {% endblock %}
