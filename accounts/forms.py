@@ -1,9 +1,11 @@
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Button, Submit, Layout
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 from buyerseller.models import Category, Rfq
-from .models import Profile
+from .models import Profile, ColdCoffe
 from django.utils.translation import gettext_lazy as _
 
 
@@ -67,6 +69,22 @@ class CompanyImageForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['img1', 'img2', 'img3']
+
+
+class CoffeePaymentForm(forms.ModelForm):
+    class Meta:
+        model = ColdCoffe
+        fields = "__all__"
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__( *args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.layout = Layout(
+            'name',
+            'amount',
+            Submit('submit','Buy' , css_class='button white btn-primary')
+        )
 
 
 class UserUpdateForm(forms.ModelForm):

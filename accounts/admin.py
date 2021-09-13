@@ -1,9 +1,11 @@
 from django.contrib import admin
 from buyerseller.models import Product, Category
-from .models import Profile, Contactme
+from .models import Profile, Contactme, ColdCoffe
 from mptt.admin import DraggableMPTTAdmin
 
 admin.site.register(Profile)
+
+admin.site.register(ColdCoffe)
 
 
 class ContactmeAdmin(admin.ModelAdmin):

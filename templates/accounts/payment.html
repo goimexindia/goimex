@@ -1,4 +1,5 @@
 {% extends 'base1.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 <head>
     <style>
@@ -8,6 +9,8 @@
             top: 50%;
             transform: translate(-50%, -50%);
         }
+
+
 
     </style>
 </head>
@@ -19,7 +22,7 @@
         <a href="#"
            title="">
             <img src="/static/images/basic.png"
-                  style="width: 30%; height: 30%"
+                 style="width: 30%; height: 30%"
                  alt=""
                  class="lazy" style="">
         </a>
@@ -30,24 +33,31 @@
             <strong>You have requested for the payment of Rs.9999/-</strong>
         </p>
 
-        <input type="name" name="name" id="name" required class="form-control mb-4" placeholder="Name">
+        <!-- <input type="name" name="name" id="name" required class="form-control mb-4" placeholder="Name"> -->
+
+        <div class="container" style="width: 100%; background-color: #40e3ac; border-radius:5px; padding: 30px;">
+            {% crispy form%}
+        </div>
 
         <!-- RAZORPAY INTEGRATION HERE -->
-
-        <script src="https://checkout.razorpay.com/v1/checkout.js"
-                data-key='utpgdTG6iY9OXcRVwZ6pepLu'
-                data-amount="9999"
-                data-currency="INR"
-                data-order_id="{{user.id}}"
-        data-buttontext="Pay with Razorpay  "
-        data-name={{user.username}}
-        data-description="BASIC MEMBERSHIP"
-        data-image="/static/images/basic.png"
-        data-prefill.name={{user.profile.organization}}
-        data-prefill.email={{user.email}}
-        data-theme.color="#F37254">
-        </script>
-    </form>
+        {% if payment %}
+            <form action="https://www.example.com/payment/success/" method="POST">
+            <script src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key='utpgdTG6iY9OXcRVwZ6pepLu'
+                    data-amount="9999"
+                    data-currency="INR"
+                    data-order_id="{{user.id}}"
+                    data-buttontext="Pay with Razorpay  "
+                    data-name={{user.username}}
+                    data-description="BASIC MEMBERSHIP"
+                    data-image="/static/images/basic.png"
+                    data-prefill.name={{user.profile.organization}}
+                    data-prefill.email={{user.email}}
+                    data-theme.color="#F37254">
+            </script>
+            <input type="hidden" custom="HIDDEN ELEMENT" name="hidden">
+            </form>
+    {% endif %}
 
 
 </div>

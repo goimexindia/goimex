@@ -422,14 +422,30 @@ def contact(request):
 def basicpayment(request):
     keyid = 'rzp_live_8iKdUKGqRVttUs'
     keySecret = 'utpgdTG6iY9OXcRVwZ6pepLu'
+    form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
         amount = 999900
         order_receipt = 'order_rcptid_11'
-        notes = {'Shipping address': 'Bommanahalli, Bangalore'}
+        notes = {'BASIC'}
         client = razorpay.Client(auth=(keyid, keySecret))
-        client.order.create(amount=amount, currency='INR', receipt=order_receipt, notes=notes)
-    return render(request, 'accounts/payment.html')
+        response_payment = client.order.create(dict(amount=amount, currency='INR'))
+        order_id = response_payment['id']
+        order_status = response_payment['status']
+        if order_status == 'crated':
+            cold_coffee = ColdCoffe(
+                name=name,
+                amount=amount,
+                order_id=order_id
+            )
+            cold_coffee.save()
+            response_payment['name']=name
+
+            form = CoffeePaymentForm(request.Post or None)
+            return render(request, 'accounts/payment.html', {'form': form, 'payment': response_payment})
+
+    form = CoffeePaymentForm()
+    return render(request, 'accounts/payment.html', {'form': form})
 
 
 @csrf_exempt
@@ -495,4 +511,4 @@ def expayment(request):
 
 @csrf_exempt
 def success(request):
-    return render(request, "success.html")
+    return render(request, "accounts/success.html")
