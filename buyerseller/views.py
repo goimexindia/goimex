@@ -132,6 +132,16 @@ class HomeSerView(TemplateView):
 class NewAppView(TemplateView):
     template_name = "serai.html"
 
+    def get_context_data(self, **kwargs):
+        context = super(NewAppView, self).get_context_data(**kwargs)
+        suppliers = Profile.objects.exclude(organization__isnull=True).exclude(bio__isnull=True).exclude(type='Buyer').order_by("-id")[:3]
+        context['suppliers'] = suppliers
+        buyer = Profile.objects.exclude(img="profile1.png").exclude(bio__isnull=True).exclude(organization__isnull=True).filter(industry='FOOD & BEVERAGE').order_by("-id")[:3]
+        context['buyer'] = buyer
+        agri = Profile.objects.exclude(img="profile1.png").exclude(bio__isnull=True).exclude(organization__isnull=True).filter(industry='AGRICULTURE').order_by("-id")[:3]
+        context['agri'] = agri
+        return context
+
 
 class EcomerceView(TemplateView):
     template_name = "buyerseller/ecomerce.html"

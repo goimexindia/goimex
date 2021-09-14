@@ -1,0 +1,114 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+</head>
+
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3">Our Verified Suppliers.... </h3>
+            </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for p in suppliers %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <img class="img-fluid" alt="100%x280"
+                                             src="{{p.img.url}}">
+                                        <h5 class="card-title">{{p.organization|striptags|truncatechars:200}}</h5>
+
+                                        <div class="card-body">
+                                        </div>
+                                        <div class=" text-center">
+                                            <p class="card-text"><small>{{p.bio|striptags|truncatechars:200 }}
+                                                <a href=" {% url 'companyproduct' p.user.id %} ">More..</a> </small></p>
+                                            <small>Seller based in ( {{ p.country.name }} )</small>
+                                            <a class="mr-2" href=" {% url 'companyproduct' p.user.id  %} ">
+                                                <small>{{p.author.profile.organization }}</small></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+
+                                {% for p in buyer %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <img class="img-fluid" alt="100%x280"
+                                             src="{{p.img.url}}">
+                                          <h5 class="card-title">{{p.organization|striptags|truncatechars:200}}</h5>
+                                        <div class="card-body">
+
+                                        </div>
+                                        <div class=" text-center">
+                                            <p class="card-text"><small>{{p.bio|striptags|truncatechars:200 }}
+                                                <a href=" {% url 'companyproduct' p.user.id %} ">More..</a> </small></p>
+                                            <small>Seller based in ( {{ p.country.name }} )</small>
+                                            <a class="mr-2" href=" {% url 'companyproduct' p.user.id  %} ">
+                                                <small>{{p.author.profile.organization }}</small></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                          <div class="carousel-item">
+                            <div class="row">
+
+                                {% for p in agri %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <img class="img-fluid" alt="100%x280"
+                                             src="{{p.img.url}}">
+                                          <h5 class="card-title">{{p.organization|striptags|truncatechars:200}}</h5>
+                                        <div class="card-body">
+
+                                        </div>
+                                        <div class=" text-center">
+                                            <p class="card-text"><small>{{p.bio|striptags|truncatechars:200 }}
+                                                <a href=" {% url 'companyproduct' p.user.id %} ">More..</a> </small></p>
+                                            <small>Seller based in ( {{ p.country.name }} )</small>
+                                            <a class="mr-2" href=" {% url 'companyproduct' p.user.id  %} ">
+                                                <small>{{p.author.profile.organization }}</small></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
