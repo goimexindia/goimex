@@ -422,6 +422,10 @@ def contact(request):
 def basicpayment(request):
     keyid = 'rzp_live_Ov8XlxQ15IJQBh'
     keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    coldcoffe_data = {
+        'name': request.user.username,
+        'amount': int("9999") * 1,
+    }
     form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
@@ -444,7 +448,7 @@ def basicpayment(request):
             form = CoffeePaymentForm(request.POST or None)
             return render(request, 'accounts/payment.html', {'form': form, 'payment': response_payment})
 
-    form = CoffeePaymentForm()
+    form = CoffeePaymentForm(initial=coldcoffe_data)
     return render(request, 'accounts/payment.html', {'form': form})
 
 
@@ -456,6 +460,10 @@ def success(request):
 def silverpayment(request):
     keyid = 'rzp_live_Ov8XlxQ15IJQBh'
     keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    coldcoffe_data = {
+        'name': request.user.username,
+        'amount': int("18999") * 1,
+    }
     form = CoffeePaymentForm()
 
     if request.method == "POST":
@@ -477,13 +485,17 @@ def silverpayment(request):
             response_payment['name'] = name
             form = CoffeePaymentForm(request.POST or None)
             return render(request, 'accounts/payment1.html', {'form': form, 'payment': payment})
-    form = CoffeePaymentForm()
+    form = CoffeePaymentForm(initial=coldcoffe_data)
     return render(request, 'accounts/payment1.html', {'form': form})
 
 
 def goldpayment(request):
     keyid = 'rzp_live_Ov8XlxQ15IJQBh'
     keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    coldcoffe_data = {
+        'name': request.user.username,
+        'amount': int("36999") * 1,
+    }
     form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
@@ -503,7 +515,7 @@ def goldpayment(request):
             response_payment['name'] = name
             form = CoffeePaymentForm(request.POST or None)
             return render(request, 'accounts/payment2.html', {'form': form, 'payment': response_payment})
-    form = CoffeePaymentForm()
+    form = CoffeePaymentForm(initial=coldcoffe_data)
     return render(request, 'accounts/payment2.html', {'form': form})
 
 
@@ -533,6 +545,10 @@ def payment_status(request):
 def paltpayment(request):
     keyid = 'rzp_live_Ov8XlxQ15IJQBh'
     keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    coldcoffe_data = {
+        'name': request.user.username,
+        'amount': int("54999") * 1,
+    }
     form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
@@ -553,13 +569,17 @@ def paltpayment(request):
             form = CoffeePaymentForm(request.POST or None)
             return render(request, 'accounts/payment3.html', {'form': form, 'payment': response_payment})
 
-    form = CoffeePaymentForm()
+    form = CoffeePaymentForm(initial=coldcoffe_data)
     return render(request, 'accounts/payment3.html', {'form': form})
 
 
 def expayment(request):
     keyid = 'rzp_live_Ov8XlxQ15IJQBh'
     keySecret = 'Ke4e8CHQOTIf3CUGLwbwhj0P'
+    coldcoffe_data = {
+        'name': request.user.username,
+        'amount': int("81999") * 1,
+    }
     form = CoffeePaymentForm()
     if request.method == "POST":
         name = request.POST.get('name')
@@ -580,7 +600,7 @@ def expayment(request):
             form = CoffeePaymentForm(request.POST or None)
             return render(request, 'accounts/payment4.html', {'form': form, 'payment': response_payment})
 
-    form = CoffeePaymentForm()
+    form = CoffeePaymentForm(initial=coldcoffe_data)
     return render(request, 'accounts/payment4.html', {'form': form})
 
 
