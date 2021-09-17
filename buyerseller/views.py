@@ -282,7 +282,7 @@ class AddToCartView(EcomMixin, TemplateView):
         else:
             cart = None
         context['cart'] = cart
-
+        context['cart1'] = cart.cartproduct_set.count
         return context
 
 

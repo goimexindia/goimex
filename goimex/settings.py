@@ -75,6 +75,10 @@ THIRD_PARTY_APPS = [
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+)
+
 LOCAL_APPS = [
     'buyerseller.apps.BuyersellerConfig',
     'accounts.apps.AccountsConfig',
