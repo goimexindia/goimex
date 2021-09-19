@@ -11,6 +11,57 @@
 
 {% block content %}
 <div id="fb-root"></div>
+<style>
+   /* COMPACT CAPTCHA BLUE */
+
+.capbox {
+	background: #396AFC;
+	background: linear-gradient(to right, #396AFC, #2948FF);
+	border: #8084FE 0px solid;
+	border-width: 2px 2px 2px 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: inline-block;
+	padding: 5px 8px 5px 8px;
+	border-radius: 4px 4px 4px 4px;
+	}
+
+.capbox-inner {
+	font: bold 12px arial, sans-serif;
+	color: #FFFFFF;
+	background: #396AFC;
+	background:rgba(255,255,255,0.30); /* SEMI TRANSPARENT BACKGROUND */
+	margin: 0px auto 0px auto;
+	padding: 3px 10px 5px 10px;
+	border-radius: 4px;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+#CaptchaDiv {
+	color: #000000;
+	font: normal 25px Impact, Charcoal, arial, sans-serif;
+	font-style: italic;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #FFFFFF;
+	user-select: none;
+	display: inline-block;
+	padding: 3px 14px 3px 8px;
+	margin-right: 4px;
+	border-radius: 4px;
+	}
+
+#CaptchaInput {
+	border: #93B1BF 2px solid;
+	margin: 3px 0px 1px 0px;
+	width: 105px;
+	height: 40px;
+	}
+
+
+</style>
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=172084741468627&autoLogAppEvents=1"
         nonce="z7S5kE68"></script>
@@ -49,7 +100,7 @@
         </div>
         <div class="col-md-6 col-lg-6 col-xl-7 register-form login-page-form">
 
-            <form action="login" method="post">
+            <form action="login" method="post" onsubmit="return checkform(this);">
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">Sign In</legend>
@@ -59,10 +110,26 @@
                     <input type="password" name="password" placeholder="password"><br>
                 </fieldset>
                 <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit"><small class="text-muted"></small>Login</button>
-                    <hr>
+                    <!-- START CAPTCHA -->
 
+                    <div class="capbox">
+                        <div id="CaptchaDiv"></div>
+                        <div class="capbox-inner">
+                            Type the number:<br>
+                            <input type="hidden" id="txtCaptcha">
+                            <input type="text" name="CaptchaInput" id="CaptchaInput" size="15"><br>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-info" type="submit">
+                        <large class="text-muted"></large>
+                        Login
+                    </button>
+                    <hr>
                     <div>
+                        <button style="font-size: 25px; padding:5px; background-color:red;"><a
+                                href="{% url 'register' %}"
+                                style="text-decoration:None; color:#fff;">Register</a></button>
                         <button style="font-size: 25px; padding:5px; background-color:red;"><a
                                 href="{% provider_login_url 'google' %}"
                                 style="text-decoration:None; color:#fff;">Google
@@ -91,6 +158,58 @@
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+
+// Captcha Script
+
+function checkform(theform){
+var why = "";
+
+if(theform.CaptchaInput.value == ""){
+why += "- Please Enter CAPTCHA Code.\n";
+}
+if(theform.CaptchaInput.value != ""){
+if(ValidCaptcha(theform.CaptchaInput.value) == false){
+why += "- The CAPTCHA Code Does Not Match.\n";
+}
+}
+if(why != ""){
+alert(why);
+return false;
+}
+}
+
+var a = Math.ceil(Math.random() * 9)+ '';
+var b = Math.ceil(Math.random() * 9)+ '';
+var c = Math.ceil(Math.random() * 9)+ '';
+var d = Math.ceil(Math.random() * 9)+ '';
+var e = Math.ceil(Math.random() * 9)+ '';
+
+var code = a + b + c + d + e;
+document.getElementById("txtCaptcha").value = code;
+document.getElementById("CaptchaDiv").innerHTML = code;
+
+// Validate input against the generated number
+function ValidCaptcha(){
+var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+if (str1 == str2){
+return true;
+}else{
+return false;
+}
+}
+
+// Remove the spaces from the entered and generated code
+function removeSpaces(string){
+return string.split(' ').join('');
+}
+
+
+
+
+    </script>
+
     <!----------------------------
           <p><strong>-- OR --</strong></p>
     <button style="font-size: 25px; padding:5px; background-color:red;"><a href="{% provider_login_url 'github' %}"
@@ -100,7 +219,7 @@
                                                                        style="text-decoration:None; color:#fff;">Twitter
     Login</a></button>
 
---------------------------->
+    --------------------------->
 
 
 </div>
