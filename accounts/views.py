@@ -26,7 +26,7 @@ from templates.my_captcha import FormWithCaptcha
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile, Contactme
+from .models import Profile, Contactme, Subscriber, Whatyouwant
 from django.views.generic import (
     ListView,
     DetailView,
@@ -372,6 +372,62 @@ class AdminCategoryListView(AdminRequiredMixin, ListView):
         cat_list = paginator.get_page(page_number)
         context['allcat'] = cat_list
         return context
+
+
+def whatyouwant(request):
+    if request.method == "POST":
+        product_want = request.POST['products_want']
+        full_name = request.POST['full_name']
+        email = request.POST['email']
+        company_name = request.POST['company_name']
+        username = request.user.username
+        contact_input_email = request.POST['email']
+        phone_number = request.POST['phone_number']
+        type = request.POST['type']
+
+        subject = "Your Requirement needs "
+        from_email = settings.EMAIL_HOST_USER
+        contact_input_email = request.POST['email']
+        to_list = [contact_input_email, settings.EMAIL_HOST_USER]
+        message = "Dear " + full_name + ",\n\n" \
+                  + "Thank you for your request on 'TELL US WHAT YOU NEED" + "\n\n\n" \
+                  + "We will get in touch with you soon." + "\n\n\n" \
+                  + "Your message details : -" + "\n\n\n" \
+                  + "Message From-" + full_name + "\n" \
+                  + "Email:-" + contact_input_email + "\n\n" \
+                  + "Mobile:-" + phone_number + "\n\n" \
+                  + "Subject-" + product_want + "\n\n" \
+                  + "Warm Regards \n\n From: Goimex Support Team"
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        whatyouwant = Whatyouwant(email=contact_input_email, product_want=product_want,
+                                  full_name=full_name, type=type, phone_number=phone_number,
+                                  company_name=company_name)
+        whatyouwant.save()
+        context = {
+        }
+        return render(request, "whatyouwant.html", context)
+
+
+def subscriber(request):
+    if request.method == "POST":
+        user = request.user.id
+        username = request.user.username
+        contact_input_email = request.POST['email']
+        subject = " Newsletter "
+        from_email = settings.EMAIL_HOST_USER
+        contact_input_email = request.POST['email']
+        to_list = [contact_input_email, settings.EMAIL_HOST_USER]
+        message = "Dear " + username + ",\n\n" \
+                  + "Thank you for signing up for my email newsletter!" + "\n\n\n" \
+                  + "We will get in touch with you soon." + "\n\n\n" \
+                  + "-" + "\n" \
+                  + "Warm Regards \n\n From: Goimex Support Team"
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        subscriber = Subscriber(email=contact_input_email)
+        subscriber.save()
+        context = {
+        }
+        return render(request, "subscriber.html", context)
 
 
 @login_required(login_url='login')

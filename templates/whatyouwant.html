@@ -1,0 +1,30 @@
+ {% extends "blog/newbase.html" %}
+{% load static %}
+{% static "images" as baseUrl %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% block content %}
+   <style>
+      .center {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      }
+   </style>
+ <div class="container" style="width: 100%; background-color: #40e3ac; border-radius:5px; padding: 30px;">
+      <h3>
+         Thank you for your request! , Please check your email for further instruction!<i class="fas fa-check-circle"></i>
+      </h3>
+      <h4>
+         <a href="faq">
+            FAQ
+         </a>
+      </h4>
+ </div>
+{% endblock %}

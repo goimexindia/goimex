@@ -91,6 +91,19 @@ BUSSINESS = [
 ]
 
 
+class Subscriber(models.Model):
+    email = models.EmailField(max_length=60)
+
+
+class Whatyouwant(models.Model):
+    email = models.EmailField(max_length=60)
+    product_want = models.EmailField(max_length=260)
+    full_name = models.EmailField(max_length=70)
+    company_name = models.EmailField(max_length=120)
+    phone_number = models.EmailField(max_length=30)
+    type = models.EmailField(max_length=60)
+
+
 class ColdCoffe(models.Model):
     name = models.CharField(max_length=100)
     amount = models.CharField(max_length=100)

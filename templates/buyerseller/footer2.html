@@ -63,12 +63,14 @@ ul li a {
                 <div class="widget-title">
                     <h3 class="mb-4 fs-5 text-secondary text-uppercase">Newsletter signup</h3>
                 </div>
-                <form class="row row-cols-lg-auto g-3 align-items-center">
+                <form class="row row-cols-lg-auto g-3 align-items-center"
+                      action="{% url 'subscriber' %}" method="POST">
+                         {% csrf_token %}
                     <div class="col-12">
                         <label class="visually-hidden">eMail Id</label>
                         <div class="input-group">
                             <div class="input-group-text"><i class="bi bi-envelope"></i></div>
-                            <input type="text" class="form-control" placeholder="Your eMail Id">
+                            <input type="text" name="email" class="form-control" placeholder="Your eMail Id">
                         </div>
                     </div>
                     <div class="col-12">
