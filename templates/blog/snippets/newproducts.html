@@ -192,7 +192,7 @@ font-weight: 600
                                          onerror="this.onerror=null; this.src='/static/images/no_image.jpg'">
                                 </div>
                                 <div class="p-about">
-                                    <p>{{p.description|striptags|truncatechars:140 }}</p>
+                                <span>  <strong><p>{{p.description|striptags|truncatechars:140 }}</p></strong> </span>
                                 </div>
                                 <div class="buttons d-flex flex-row gap-3 px-3">
                                     <a href="{% url 'productdetail' p.slug %}"

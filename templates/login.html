@@ -61,6 +61,7 @@
 	}
 
 
+
 </style>
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=172084741468627&autoLogAppEvents=1"
@@ -108,10 +109,10 @@
                     <input type="text" name="username" placeholder="username"><br>
                     <label for="password">Password:</label><br>
                     <input type="password" name="password" placeholder="password"><br>
+
                 </fieldset>
                 <div class="form-group">
                     <!-- START CAPTCHA -->
-
                     <div class="capbox">
                         <div id="CaptchaDiv"></div>
                         <div class="capbox-inner">
@@ -121,7 +122,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-outline-info" type="submit">
+                    <button style="  width: 100;" class="btn btn-outline-info btn-lg" type="submit">
                         <large class="text-muted"></large>
                         Login
                     </button>
@@ -204,6 +205,7 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
 
 
 
