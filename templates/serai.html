@@ -70,6 +70,9 @@
 
 
 
+
+
+
 </script>
 <div
         class="fb-like"
@@ -108,6 +111,9 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 
+
+
+
 </style>
 <style type="text/css">
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
@@ -117,6 +123,9 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   agent-id="275f99b4-3cc3-4afa-b7d7-1ab2341ae7e4"
   language-code="en"
 ></df-messenger>
+
+
+
 
 
 
@@ -329,16 +338,19 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
                     <div class="c-feature__text">
                         <h3 class="heading_3 is--orange">Run promotions and launch campaigns</h3>
                         <p class="body_1 is--hero">Rely on the marketing and sales team to support you with incresing
-                            visibility of your products on the platform. We give you many ways to sell more products: sell directly at set prices, or give buyers the
+                            visibility of your products on the platform. We give you many ways to sell more products:
+                            sell directly at set prices, or give buyers the
                             option to negotiate directly with you.
                             We ensure that you only deal with verified buyers: peace of mind guaranteed.</p>
                     </div>
+                    <div class="c-cta__buttons"><a href="{% url 'faq' %}" class="button_primary w-button">Learn
+                        more</a></div>
                 </div>
                 <div class="l-column__item2 w-col w-col-6">
                     <img src="{% static 'images/sel04.png' %}" alt="Goimex seller"
                          height="280" style="box-shadow: 0px 0px 10px #888;">
-
                 </div>
+
             </section>
 
             <section id="network2" class="c-features__item is--network w-row">
@@ -351,12 +363,13 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
                             Whatever it is, we’ll help you ship it! Including specialised
                             requirements such as temperature control shipments.
                         </p>
+                        <div class="c-cta__buttons"><a href="{% url 'faq' %}" class="button_primary w-button">Learn
+                            more</a></div>
                     </div>
                 </div>
                 <div class="l-column__item2 w-col w-col-6">
                     <img src="{% static 'images/M001.jpg' %}" alt="Goimex seller"
                          height="280" style="box-shadow: 0px 0px 10px #888;">
-
                 </div>
             </section>
 
@@ -416,9 +429,11 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
                         </h6>
                         <div class="divider"></div>
                         <h6 class="heading_6 is--about">With over many years in facilitating supply chains, Goimex is
-                            launched to simplify global trade.<br></h6><a href="{% url 'faq' %}"
-                                                                          class="button_secondary w-button">Learn
+                            launched to simplify global trade.<br></h6>
+                        <div class="c-cta__buttons"><a href="{% url 'faq' %}" class="button_primary w-button">Learn
                             more</a></div>
+                    </div>
+
                 </div>
             </div>
         </div>
