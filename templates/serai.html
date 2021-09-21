@@ -68,6 +68,8 @@
 
 
 
+
+
 </script>
 <div
         class="fb-like"
@@ -104,6 +106,8 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 
+
+
 </style>
 <style type="text/css">
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
@@ -113,6 +117,8 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   agent-id="275f99b4-3cc3-4afa-b7d7-1ab2341ae7e4"
   language-code="en"
 ></df-messenger>
+
+
 
 
 
@@ -207,7 +213,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
                         </ul>
                     </li>
                     <li class="nav-item ms-3">
-                        {% if  user is not None and user.is_active %}
+                        {% if user is not None and user.is_active %}
                         <a class="nav-link" href="accounts/logout">Sign Out</a>
                         {% else %}
                         <a class="nav-link" href="accounts/login">Login</a>
@@ -252,7 +258,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     </div>
     <div class="c-section is--features"><h2 class="heading_2 is__center">Our solutions</h2>
         <div class="c-features__list">
-            <section id="network" class="c-features__item is--network w-row">
+            <section id="network1" class="c-features__item is--network w-row">
                 <div class="l-column__item1 w-col w-col-6">
                     <div class="c-feature__text">
                         <div class="subtitle_1">Connect and trade</div>
@@ -323,14 +329,32 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
                     <div class="c-feature__text">
                         <h3 class="heading_3 is--orange">Run promotions and launch campaigns</h3>
                         <p class="body_1 is--hero">Rely on the marketing and sales team to support you with incresing
-                            visibility of your products on the platform.</p>
-                        <p>We give you many ways to sell more products: sell directly at set prices, or give buyers the
+                            visibility of your products on the platform. We give you many ways to sell more products: sell directly at set prices, or give buyers the
                             option to negotiate directly with you.
                             We ensure that you only deal with verified buyers: peace of mind guaranteed.</p>
                     </div>
                 </div>
                 <div class="l-column__item2 w-col w-col-6">
                     <img src="{% static 'images/sel04.png' %}" alt="Goimex seller"
+                         height="280" style="box-shadow: 0px 0px 10px #888;">
+
+                </div>
+            </section>
+
+            <section id="network2" class="c-features__item is--network w-row">
+                <div class="l-column__item1 w-col w-col-6">
+                    <div class="c-feature__text">
+                        <h3 class="heading_3 is--orange">International Shipping</h3>
+                        <p class="body_1 is--hero">Arranging your shipping has never been easier. Ship from more than
+                            200 countries! We handle all types of shipping contracts.
+                            Rely on us for all your customs clearance needs.
+                            Whatever it is, we’ll help you ship it! Including specialised
+                            requirements such as temperature control shipments.
+                        </p>
+                    </div>
+                </div>
+                <div class="l-column__item2 w-col w-col-6">
+                    <img src="{% static 'images/m001.jpg' %}" alt="Goimex seller"
                          height="280" style="box-shadow: 0px 0px 10px #888;">
 
                 </div>
