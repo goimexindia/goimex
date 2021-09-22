@@ -75,19 +75,20 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 1;
 }
 
+
 </style>
 <style type="text/css">
     .company-index-banner{
-        background-image: url("https://www.eworldtrade.com/assets/images/company/company-banner.jpg");
-         background-image: url("https://www.eworldtrade.com/assets/images/company/company-banner.jpg");
+         background-image:
         background-position: center center;
         background-size: cover;
     }
     .company-join-banner{
-        background-image: linear-gradient(0deg,rgba(230, 29, 36, 0.6),rgba(33, 37, 41, 0.6)), url("https://www.eworldtrade.com/assets/img/disp-banner.jpg");
+        background-image: linear-gradient(0deg,rgba(230, 29, 36, 0.6),rgba(33, 37, 41, 0.6)), url("https://www.eworldtrade.com/assets/img/disp-1banner.jpg");
         background-position: center center;
         background-size: cover;
     }
+
 
 </style>
 
@@ -117,14 +118,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </div>
 </section>
 ---->
-{% if user.is_authenticated %}
-<section class="inner-banner-leftnav company-index-banner">
-    <div class="mx-auto w-75 text-center">
-        <h1>Find Companies</h1>
-        <span>Around the World and Grow Your Business</span>
-    </div>
-</section>
-{% endif %}
+
 <button class="open-button" onclick="openForm()">TELL US WHAT YOU NEED</button>
 
 <div class="form-popup" id="myForm">
@@ -156,6 +150,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </form>
 </div>
 {% if user.is_authenticated %}
+<section class="inner-banner-leftnav company-join-banner mt-3">
+    <div class="mx-auto w-75">
+        <div class="mx-auto w-75 text-center">
+            <h1>Find Companies</h1>
+            <span>Around the World and Grow Your Business</span>
+        </div>
+
+    </div>
+</section>
 {% else %}
 <section class="inner-banner-leftnav company-join-banner mt-3">
     <div class="mx-auto w-75">
@@ -240,11 +243,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </ul>
             <div class="buyer-listing-action full-with-div mg-top-10">
 
-               <!--- <a href="#" class="membership-tag-sm">
-                    <img src="https://www.eworldtrade.com/assets/svg/package/lg_free.svg" class="lazy" alt="Free"
-                         width="112" height="34" style="">
-                </a>---->
-                <a href="#" class=" buyer-listing-btn">Contact Now</a>
+                <!--- <a href="#" class="membership-tag-sm">
+                     <img src="https://www.eworldtrade.com/assets/svg/package/lg_free.svg" class="lazy" alt="Free"
+                          width="112" height="34" style="">
+                 </a>---->
+                <a href=" {% url 'companyproduct' profiles.user.id %} " class=" buyer-listing-btn">Contact Now</a>
             </div>
         </div>
     </div>
@@ -433,6 +436,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
+
 </script>
 
 <script>
@@ -443,6 +447,7 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+
 
 
 
