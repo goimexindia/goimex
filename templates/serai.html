@@ -54,26 +54,6 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 <div
         class="fb-like"
@@ -88,34 +68,6 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .mySlides {display:none}
 .w3-tag, .fa {cursor:pointer}
 .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 <style type="text/css">
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
@@ -125,38 +77,6 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   agent-id="275f99b4-3cc3-4afa-b7d7-1ab2341ae7e4"
   language-code="en"
 ></df-messenger>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </style>
 <div class="container-5 w-container">
@@ -194,34 +114,33 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
                             Solutions
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'ecomerce' %}">Connect and Trade</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ecomerce' %}">Services</a></li>
+                            <li><a class="dropdown-item" href="#network">Connect and Trade</a></li>
+                            <li><a class="dropdown-item" href="#services">Services</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown ms-3">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                            data-bs-toggle="dropdown"
                            aria-expanded="false">
                             Insights
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{% url 'video' %}">Articles</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ecomerce' %}">Events</a></li>
+                            <li><a class="dropdown-item" href="{% url 'ecomerce' %}">eShoppe</a></li>
+                             <li><a class="dropdown-item" href="{% url 'allcompany' %}">Verified Suppliers</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown ms-3">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                            data-bs-toggle="dropdown"
                            aria-expanded="false">
                             Our Company
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{% url 'aboutus' %}">About Us</a></li>
-                            <li><a class="dropdown-item" href="{% url 'aboutus' %}">Press</a></li>
-                            <li><a class="dropdown-item" href="{% url 'aboutus' %}">Careers</a></li>
-                            <li><a class="dropdown-item" href="{% url 'contact' %}">Help Centers</a></li>
                             <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="{% url 'faq' %}">FAQ's</a></li>
                         </ul>
                     </li>
                     <li class="nav-item ms-3">
@@ -268,7 +187,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
             </div>
         </div>
     </div>
-    <div class="c-section is--features"><h2 class="heading_2 is__center">Our solutions</h2>
+    <div id="network" class="c-section is--features"><h2 class="heading_2 is__center">Our solutions</h2>
         <div class="c-features__list">
             <section id="network1" class="c-features__item is--network w-row">
                 <div class="l-column__item1 w-col w-col-6">
@@ -336,7 +255,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
             </section>
 
 
-            <section id="network" class="c-features__item is--network w-row">
+            <section id="network9" class="c-features__item is--network w-row">
                 <div class="l-column__item1 w-col w-col-6">
                     <div class="c-feature__text">
                         <h3 class="heading_3 is--orange">Run promotions and launch campaigns</h3>
@@ -520,8 +439,9 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
         </div>
     </div>
 
+
     <div class="c-section is--gray wf-section">
-        <div class="c-get_started"><h2 class="heading_2 is__center">Our Services</h2>
+        <div id="services" class="c-get_started"><h2 class="heading_2 is__center">Our Services</h2>
             <div class="c-get_started__list">
                 <div class="c-get_started__item">
                     <h5 class="heading_5 is-center is--orange">
