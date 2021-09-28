@@ -84,7 +84,6 @@ LOCAL_APPS = [
     'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
     "verify_email.apps.VerifyEmailConfig",
-
 ]
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
