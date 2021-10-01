@@ -34,7 +34,6 @@ admin.site.site_title = 'Goimex Global Administration'
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),  # new
-
     path('', include('buyerseller.urls')),
     path('blog/', include('blog.urls')),
     path('buyerseller/', include('buyerseller.urls')),
