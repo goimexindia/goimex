@@ -55,6 +55,7 @@ def login(request):
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
         if user is not None:
+            messages.info(request, "Logged IN successfully!")
             auth.login(request, user)
             return redirect("/")
         else:
@@ -116,6 +117,7 @@ def register(request):
 
 def logout(request):
     auth.logout(request)
+    messages.info(request, "Logged OUT successfully!")
     return redirect('/')
 
 

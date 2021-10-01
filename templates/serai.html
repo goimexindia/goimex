@@ -32,8 +32,8 @@
         <script src="https://js.hs-analytics.net/analytics/1625503500000/6055619.js" type="text/javascript"
                 id="hs-analytics"></script>----------------->
 
-<!-- Hotjar Tracking Code for https://goimex.herokuapp.com/ -->
-<script>
+    <!-- Hotjar Tracking Code for https://goimex.herokuapp.com/ -->
+    <script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:2625577,hjsv:6};
@@ -42,7 +42,11 @@
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+
+
+
+
+    </script>
 </head>
 <body>
 
@@ -64,6 +68,10 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+
+
+
 </script>
 <div
         class="fb-like"
@@ -78,6 +86,10 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .mySlides {display:none}
 .w3-tag, .fa {cursor:pointer}
 .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+
+
+
+
 </style>
 <style type="text/css">
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
@@ -88,21 +100,40 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   language-code="en"
 ></df-messenger>
 
+
+
+
+
 </style>
+<div class="container">
+    <div id="google_translate_element"></div>
 
-<div id="google_translate_element"></div>
-
-<script type="text/javascript">
+    <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
-</script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
+
+    </script>
+
+    <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">
+        ×
+    </button>
+    <strong>
+        {{message}}
+    </strong>
+</div>
+{% endfor %}
+{% endif %}
 <div class="container-5 w-container">
-
-
     <link rel="stylesheet" href="./style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -149,7 +180,7 @@ function googleTranslateElementInit() {
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{% url 'video' %}">Articles</a></li>
                             <li><a class="dropdown-item" href="{% url 'ecomerce' %}">eShoppe</a></li>
-                             <li><a class="dropdown-item" href="{% url 'allcompany' %}">Verified Suppliers</a></li>
+                            <li><a class="dropdown-item" href="{% url 'allcompany' %}">Verified Suppliers</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown ms-3">
@@ -499,8 +530,45 @@ function googleTranslateElementInit() {
     {% include 'buyerseller/testimonial.html' %}
     {% include 'becomeaseller.html' %}
     {% include 'banner.html' %}
-   {% include 'accounts/membership1.html' %}
+    {% include 'accounts/membership1.html' %}
     <br><br>
+
+    <div class="main-footer">
+        <div class="container">
+
+
+        </div>
+    </div>
+
+
+    <div class="c-section about">
+        <div class="c-about"><h2 class="heading_2 is__center">Who we are</h2>
+            <div class="l-column_2 w-row">
+                <div class="l-column__item1 w-col w-col-6">
+                    <iframe width="608" height="400" class="embed-responsive-item" id="ytplayer" type="text/html"
+                            width="640" height="360"
+                            src="https://www.youtube.com/embed/s6VcIn0oU14?&autoplay=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=s6VcIn0oU14"
+                            frameborder="0" allowfullscreen></iframe>
+
+
+                </div>
+                <div class="l-column__item2 w-col w-col-6">
+                    <div class="c-about__text"><h5 class="heading_5">We are a team of technology and business
+                        enthusiasts committed to making B2B trading simpler, faster and more secure. Our mission is to
+                        become the leading platform for all business buying. </h5>
+                        <div class="divider"></div>
+                        <h6 class="heading_6 is--about">With over many years in facilitating supply chains, Goimex is
+                            launched to simplify global trade.<br></h6>
+                        <div class="c-cta__buttons"><a href="{% url 'faq' %}" class="button_primary w-button">Learn
+                            more</a></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="main-footer">
         <div class="container-6 w-container">
             <div class="footer-flex-container">
@@ -580,7 +648,7 @@ function googleTranslateElementInit() {
             </div>
             <div class="c1-footer_copyright w-clearfix">
                 <div class="c1-footer_copyright__links w-clearfix"><a href="{% url 'terms' %}" target="_blank"
-                                                                     class="text_link">Terms &amp; Policies<br></a>
+                                                                      class="text_link">Terms &amp; Policies<br></a>
                     <link rel="prefetch" href="/terms-and-policy/terms-of-use">
                     <a href="{% url 'terms' %}" class="text_link">Privacy policy<br></a>
                 </div>
