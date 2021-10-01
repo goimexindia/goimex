@@ -58,6 +58,9 @@
 
 
 
+
+
+
 </style>
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=172084741468627&autoLogAppEvents=1"
@@ -122,7 +125,11 @@
                         <large class="text-muted"></large>
                         Login
                     </button>
-                    <hr>
+                    <div>
+                    <strong>
+                        <a class="ml-2" href="{% url 'register' %}">New Registration</a>
+                    </strong></div>
+                    <!------
                     <div>
                         <button style="font-size: 25px; padding:5px; background-color:red;"><a
                                 href="{% url 'register' %}"
@@ -136,17 +143,17 @@
                                 href="{% url 'social:begin' backend='linkedin-oauth2' %}"
                                 style="text-decoration:None; color:#fff;">Login with Linkedin</a></button>
                     </div>
-
+-------->
 
                     <!--- <button style="font-size: 25px; padding:5px; background-color:red;"><a
                              href="{% provider_login_url 'facebook' %}"
                              style="text-decoration:None; color:#fff;">Facebook
                          Login</a></button>--->
-                    <hr>
-                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with"
-                         data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <!---<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with"
+                         data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>---->
                     <small class="text-muted ml-2">
-                        <p><strong>By login into this website, you agree to our Terms and that you have read our Data
+                        <p><input type="checkbox" class="largerCheckbox" id="Check1"
+                           value=”checked_value” disabled checked><strong>By login into this website, you agree to our Terms and that you have read our Data
                             UsePolicy,
                             including our Cookie Use.</strong></p>
                         <hr>
@@ -201,6 +208,9 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
+
+
 
 
 
