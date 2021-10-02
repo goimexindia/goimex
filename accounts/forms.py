@@ -7,10 +7,16 @@ from django.contrib.auth.forms import UserCreationForm
 from buyerseller.models import Category, Rfq
 from .models import Profile, ColdCoffe
 from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
+
+
+def validate_email(value):
+    if User.objects.filter(email=value).exists():
+        raise ValidationError((f"{value} is taken."), params={'value': value})
 
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(validators=[validate_email])
 
     class Meta:
         model = User
