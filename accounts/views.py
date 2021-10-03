@@ -99,7 +99,7 @@ def update_user_data(user):
     Customer.objects.update_or_create(user=user, defaults={'username': user.customer.full_name})
 
 
-def register1(request):
+def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         get_recaptcha = request.POST.get("g-recaptcha-response")
@@ -114,7 +114,7 @@ def register1(request):
                                              'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY}, )
 
 
-def register(request):
+def register2(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         get_recaptcha = request.POST.get("g-recaptcha-response")
@@ -132,8 +132,8 @@ def register(request):
             })
             mail_subject = 'Activate your GOIMEX account.'
             to_email = form.cleaned_data.get('email')
-            from_email = settings.EMAIL_HOST_USER
             to_list = [email, settings.EMAIL_HOST_USER]
+            from_email = settings.EMAIL_HOST_USER
             send_mail(mail_subject, message, from_email, to_list, fail_silently=True)
             return HttpResponse('Please confirm your email address to complete the registration')
     else:
