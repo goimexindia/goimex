@@ -694,7 +694,7 @@ def success(request):
     return render(request, "accounts/success.html")
 
 
-def activate(request, uidb64, token):
+def activate1(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
@@ -706,5 +706,21 @@ def activate(request, uidb64, token):
         login(request, user)
         # return redirect('home')
         return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+    else:
+        return HttpResponse('Activation link is invalid!')
+    
+
+def activate(request, uid, token):
+    try:
+        user = User.objects.get(pk=uid)
+        verify = Profile.objects.get(user_id=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        verify.is_verify = True
+        verify.save()
+        return HttpResponse('Thank you for your email confirmation. Now you can <a href="/login" %}"="">login</a> your account.')
     else:
         return HttpResponse('Activation link is invalid!')
