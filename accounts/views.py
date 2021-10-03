@@ -99,7 +99,7 @@ def update_user_data(user):
     Customer.objects.update_or_create(user=user, defaults={'username': user.customer.full_name})
 
 
-def register(request):
+def register1(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         get_recaptcha = request.POST.get("g-recaptcha-response")
@@ -114,7 +114,7 @@ def register(request):
                                              'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY}, )
 
 
-def register2(request):
+def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         get_recaptcha = request.POST.get("g-recaptcha-response")
