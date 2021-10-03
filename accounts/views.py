@@ -454,7 +454,7 @@ def subscriber(request):
                   + "We will get in touch with you soon." + "\n\n\n" \
                   + "-" + "\n" \
                   + "Warm Regards \n\n From: Goimex Support Team"
-        send_mail(subject, message, from_email, to_list, fail_silently=False)
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
         subscriber = Subscriber(email=contact_input_email)
         subscriber.save()
         context = {
@@ -728,7 +728,7 @@ class ActivateAccount(View):
             user.save()
             login(request)
             messages.success(request, ('Your account have been confirmed.'))
-            return redirect('home')
+            return redirect('login')
         else:
             messages.warning(request, ('The confirmation link was invalid, possibly because it has already been used.'))
-            return redirect('home')
+            return redirect('login')
