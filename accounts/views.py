@@ -136,7 +136,9 @@ def register(request):
             to_list = [email, settings.EMAIL_HOST_USER]
             from_email = settings.EMAIL_HOST_USER
             send_mail(mail_subject, message, from_email, to_list, fail_silently=True)
-            return HttpResponse('Please confirm your email address to complete the registration')
+            messages.success(request, 'Please Confirm your email to complete registration.')
+            return redirect('register')
+            ###return HttpResponse('Please confirm your email address to complete the registration')
     else:
         form = UserRegisterForm()
 
