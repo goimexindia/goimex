@@ -4,8 +4,10 @@ from .views import CategoryCreateView, AdminCategoryListView
 
 urlpatterns = [
     path('register', views.register, name='register'),
+    path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+         views.activate, name='activate'),
     path('basicpayement', views.basicpayment, name='basicpayment'),
-    path('payment_status', views.payment_status , name='payment_status'),
+    path('payment_status', views.payment_status, name='payment_status'),
     path('silverpayement', views.silverpayment, name='silverpayment'),
     path('goldpayement', views.goldpayment, name='goldpayment'),
     path('paltpayement', views.paltpayment, name='paltpayment'),
@@ -36,6 +38,5 @@ urlpatterns = [
     path('listing', views.listing, name='listing'),
     path('transactions', views.transactions, name='transactions'),
     path('safedeal', views.safedeal, name='safedeal'),
-    path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-         views.activate, name='activate'),
+
 ]

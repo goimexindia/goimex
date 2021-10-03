@@ -693,6 +693,7 @@ def expayment(request):
 def success(request):
     return render(request, "accounts/success.html")
 
+
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
