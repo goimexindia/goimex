@@ -195,10 +195,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+
 
 
 
@@ -304,3 +301,11 @@ RECAPTCHA_PRIVATE_KEY = '6Lfv_TAcAAAAAPYHMIt9oIJsL-Vk4mWwn4BypbyO'
 
 
 RECAPTCHA_REQUIRED_SCORE = 0.85
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'goimex113@gmail.com'
+EMAIL_HOST_PASSWORD = 'wmfmrerzajgwtbfs'
