@@ -1,10 +1,9 @@
 from django.urls import path
 from . import views
-from .views import CategoryCreateView, AdminCategoryListView, ActivateAccount
+from .views import CategoryCreateView, AdminCategoryListView
 
 urlpatterns = [
     path('register', views.register, name='register'),
-    path('activate/<uidb64>/<token>/', ActivateAccount.as_view(), name='activate'),
     path('basicpayement', views.basicpayment, name='basicpayment'),
     path('payment_status', views.payment_status , name='payment_status'),
     path('silverpayement', views.silverpayment, name='silverpayment'),
@@ -37,4 +36,6 @@ urlpatterns = [
     path('listing', views.listing, name='listing'),
     path('transactions', views.transactions, name='transactions'),
     path('safedeal', views.safedeal, name='safedeal'),
+    path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+         views.activate, name='activate'),
 ]

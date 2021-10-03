@@ -12,11 +12,11 @@ from django.core.exceptions import ValidationError
 
 def validate_email(value):
     if User.objects.filter(email=value).exists():
-        raise ValidationError((f"{value} is taken."), params={'value': value})
+        raise ValidationError(f"{value} is taken.", params={'value': value})
 
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField(validators=[validate_email])
+    #email = forms.EmailField(max_length=200, help_text='Required', validators=[validate_email])
 
     class Meta:
         model = User

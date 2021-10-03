@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail
 from django.db.models import Q
-from django.http import FileResponse, HttpResponseBadRequest
+from django.http import FileResponse, HttpResponseBadRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
@@ -99,11 +99,10 @@ def update_user_data(user):
     Customer.objects.update_or_create(user=user, defaults={'username': user.customer.full_name})
 
 
-def register(request):
+def register1(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         get_recaptcha = request.POST.get("g-recaptcha-response")
-        print(get_recaptcha)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -113,6 +112,34 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form, "captcha": FormWithCaptcha,
                                              'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY}, )
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        get_recaptcha = request.POST.get("g-recaptcha-response")
+        if form.is_valid():
+            email = request.POST['email']
+            user = form.save(commit=False)
+            user.is_active = False
+            user.save()
+            current_site = get_current_site(request)
+            message = render_to_string('accounts/acc_active_email.html', {
+                'user': user,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': account_activation_token.make_token(user),
+            })
+            mail_subject = 'Activate your GOIMEX account.'
+            to_email = form.cleaned_data.get('email')
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [email, settings.EMAIL_HOST_USER]
+            send_mail(mail_subject, message, from_email, to_list, fail_silently=True)
+            return HttpResponse('Please confirm your email address to complete the registration')
+    else:
+        form = UserRegisterForm()
+
+    return render(request, 'register.html', {'form': form})
 
 
 def logout(request):
