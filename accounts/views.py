@@ -451,7 +451,7 @@ def subscriber(request):
                   + "We will get in touch with you soon." + "\n\n\n" \
                   + "-" + "\n" \
                   + "Warm Regards \n\n From: Goimex Support Team"
-        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        send_mail(subject, message, from_email, to_list )
         subscriber = Subscriber(email=contact_input_email)
         subscriber.save()
         context = {
