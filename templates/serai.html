@@ -179,6 +179,7 @@ function googleTranslateElementInit() {
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{% url 'video' %}">Articles</a></li>
+                            <li><a class="dropdown-item" href="{% url 'galerry' %}">Gallery</a></li>
                             <li><a class="dropdown-item" href="{% url 'ecomerce' %}">eShoppe</a></li>
                             <li><a class="dropdown-item" href="{% url 'allcompany' %}">Verified Suppliers</a></li>
                         </ul>
@@ -595,11 +596,11 @@ function googleTranslateElementInit() {
                 </div>
                 <div><h6 class="footer-heading-2">Our Company</h6>
                     <ul role="list" class="w-list-unstyled">
-                        <li><a href="{% url 'aboutus' %}" class="footer-link-3">Company Overview</a></li>
-                        <li><a href="{% url 'aboutus' %}" class="footer-link-3">Core Features</a>
-                            <a href="{% url 'aboutus' %}" class="footer-link-3">Our Strength</a>
-                            <a href="{% url 'aboutus' %}" class="footer-link-3">Global Operations</a>
-                            <a href="{% url 'aboutus' %}" class="footer-link-3">Our Partners</a></li>
+                        <li><a href="{% url 'aboutus' %}#companyOverview" class="footer-link-3">Company Overview</a></li>
+                        <li><a href="{% url 'aboutus' %}#coreFeatures" class="footer-link-3">Core Features</a>
+                            <a href="{% url 'aboutus' %}#ourStrength" class="footer-link-3">Our Strength</a>
+                            <a href="{% url 'aboutus' %}#globalOperations" class="footer-link-3">Global Operations</a>
+                            <a href="{% url 'aboutus' %}#ourPartners" class="footer-link-3">Our Partners</a></li>
                         <li><a class="footer-link-3" href="{% url 'video' %}">Our Articles</a></li>
                     </ul>
                 </div>

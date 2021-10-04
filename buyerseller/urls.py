@@ -38,6 +38,7 @@ urlpatterns = [
     path('Cart/<int:pk>/delete', CartDeleteView.as_view(), name='cart-delete'),
     path('htscode', views.htscode, name='htscode'),
     path('aboutus', views.aboutus, name='aboutus'),
+    path('galerry', views.galerry, name='galerry'),
     path('companyproduct/<int:pk>/', views.companyproduct, name='companyproduct'),
     path('customer/<int:pk>/', views.customer, name='customer'),
     path('cat/list/', Cat.as_view(), name='cat'),

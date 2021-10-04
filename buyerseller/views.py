@@ -400,6 +400,10 @@ def aboutus(request):
     return render(request, 'buyerseller/aboutus.html')
 
 
+def galerry(request):
+    return render(request, 'galerry.html')
+
+
 def companyproduct(request, pk):
     author = User.objects.get(id=pk)
     product = author.product_set.filter(status=1)
