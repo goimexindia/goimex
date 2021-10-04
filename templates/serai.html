@@ -46,6 +46,12 @@
 
 
 
+
+
+
+
+
+
     </script>
 </head>
 <body>
@@ -72,6 +78,12 @@
 
 
 
+
+
+
+
+
+
 </script>
 <div
         class="fb-like"
@@ -90,6 +102,12 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 
+
+
+
+
+
+
 </style>
 <style type="text/css">
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
@@ -104,6 +122,12 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 
+
+
+
+
+
+
 </style>
 <div class="container">
     <div id="google_translate_element"></div>
@@ -112,6 +136,12 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
+
+
+
+
+
+
 
 
 
@@ -546,123 +576,142 @@ function googleTranslateElementInit() {
         <div class="c-about"><h2 class="heading_2 is__center">Who we are</h2>
             <div class="l-column_2 w-row">
                 <div class="l-column__item1 w-col w-col-6">
-                    <iframe width="100%" height="400" class="embed-responsive-item" id="ytplayer" type="text/html"
-                            width="100%" height="360"
-                            src="https://www.youtube.com/embed/s6VcIn0oU14?&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3&playlist=s6VcIn0oU14"
-                            frameborder="0" allowfullscreen></iframe>
-
-
+                    <video width="100%" height="360" autoplay muted loop>
+                        <source src="https://goimex-bucket.s3.us-east-2.amazonaws.com/v03.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="l-column__item2 w-col w-col-6">
                     <div class="c-about__text"><h5 class="heading_5">We are a team of technology and business
                         enthusiasts committed to making B2B trading simpler, faster and more secure. Our mission is to
                         become the leading platform for all business buying. </h5>
                         <div class="divider"></div>
-                        <h6 class="heading_6 is--about">With over many years in facilitating supply chains, Goimex is
-                            launched to simplify global trade.<br></h6>
+
                         <div class="c-cta__buttons"><a href="{% url 'faq' %}" class="button_primary w-button">Learn
                             more</a></div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="c-section about">
+        <div class="c-about"><h2 class="heading_2 is__center">Who we work</h2>
+            <div class="l-column_2 w-row">
+                <div class="l-column__item1 w-col w-col-6">
 
-    <div class="main-footer">
-        <div class="container-6 w-container">
-            <div class="footer-flex-container">
-                <div class="div-block-133"><img
-                        src="{%  static  'images/logonew3.png' %}"
-                        loading="lazy" alt="" class="c-footer__image">
-                    <lii>
-                        <div><h6>Registered Office</h6></div>
-                        <strong></strong>
-                        <div>
-                            <h6>403, Chawla Complex, Sec-15,</h6>
-                        </div>
-                        <div>
-                            <h6>CBD Belapur,Navi Mumbai,</h6>
-                        </div>
-                        <div>
-                            <h6> Maharashtra – 400 614, India</h6>
-                        </div>
-                        <div>
-                            <h6>Help Center-+91-9776922923</h6>
-                        </div>
-
-                    </lii>
-                </div>
-                <div><h6 class="footer-heading-2">Our Company</h6>
-                    <ul role="list" class="w-list-unstyled">
-                        <li><a href="{% url 'aboutus' %}#companyOverview" class="footer-link-3">Company Overview</a></li>
-                        <li><a href="{% url 'aboutus' %}#coreFeatures" class="footer-link-3">Core Features</a>
-                            <a href="{% url 'aboutus' %}#ourStrength" class="footer-link-3">Our Strength</a>
-                            <a href="{% url 'aboutus' %}#globalOperations" class="footer-link-3">Global Operations</a>
-                            <a href="{% url 'aboutus' %}#ourPartners" class="footer-link-3">Our Partners</a></li>
-                        <li><a class="footer-link-3" href="{% url 'video' %}">Our Articles</a></li>
-                    </ul>
-                </div>
-                <div><h6 class="footer-heading-2">Our Activities</h6>
-                    <ul role="list" class="w-list-unstyled">
-                        <li><a href="{% url 'video' %}" class="footer-link-3">Press</a>
-                            <a href="{% url 'rfq' %}" class="footer-link-3">RFQ</a>
-                            <a href="{% url 'faq' %}" class="footer-link-3">FAQ's</a>
-                            <a href="{% url 'contact' %}" class="footer-link-3">Contact us</a></li>
-                        <a href="{% url 'safedeal' %}" class="footer-link-3">Safe Deal</a></li>
-                        <a href="https://goimexindia.blogspot.com/" class="social-link">
-                            <i class="fab fa-blogger fa-1x">My Blog</i><span></span></a>
-                    </ul>
-                </div>
-                <!----  <div><h2 class="footer-heading-2"><strong>Insights</strong></h2>
-                      <ul role="list" class="w-list-unstyled">
-                          <li><a href="{% url 'home' %}" class="footer-link-3">Articles</a></li>
-                          <li><a href="{% url 'home' %}" class="footer-link-3">Events</a></li>
-                          <li><a href="{% url 'home' %}" class="footer-link-3">Product updates</a></li>
-                      </ul>
-                  </div>----->
-                <div><h6 class="footer-heading-2">Follow us</h6>
-                    <ul role="list" class="w-list-unstyled">
-                        <a href="https://www.facebook.com/people/Goimex-India/100069323912089/"
-                           class="social-link"><i
-                                class="fab fa-facebook fa-3x"></i><span></span></a>
-
-
-                        <a href="https://www.instagram.com/goimex/" class="social-link"><i
-                                class="fab fa-instagram fa-2x"></i><span></span></a>
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-
-                        <a href="https://www.linkedin.com/company/goimexindia" class="social-link"><i
-                                class="fab fa-linkedin fa-2x"></i><span></span></a>
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                        <a href="https://youtube.com/channel/UCHkl9HEgOFrj5XeQfEcb2rg" class="social-link"><i
-                                class="fab fa-youtube fa-2x"></i><span></span></a>
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                    </ul>
-                </div>
-
-                <div><h2 class="footer-heading-2"></h2>
-
+                    <video width="100%" height="360" autoplay muted loop>
+                        <source src="https://goimex-bucket.s3.us-east-2.amazonaws.com/v02.mp4" type="video/mp4">
+                    </video>
 
                 </div>
-            </div>
-            <div class="c1-footer_copyright w-clearfix">
-                <div class="c1-footer_copyright__links w-clearfix"><a href="{% url 'terms' %}" target="_blank"
-                                                                      class="text_link">Terms &amp; Policies<br></a>
-                    <link rel="prefetch" href="/terms-and-policy/terms-of-use">
-                    <a href="{% url 'terms' %}" class="text_link">Privacy policy<br></a>
-                </div>
-                <div class="c-footer_copyright__text w-clearfix">
-                    <p class="text-center">© Copyright 2021 Goimex Global Pvt. Ltd.
-                        All rights
-                        reserved.| Design by <a href="https://vits.herokuapp.com/">Varun Incorporate</a></p>
+                <div class="l-column__item2 w-col w-col-6">
+                    <div class="c-about__text"><h5 class="heading_5">
+                        GOIMEX is B2B market place developed to enable international and domestic bulk trade of
+                        commodities and products</h5>
+                        <div class="divider"></div>
 
-
+                        <div class="c-cta__buttons"><a href="{% url 'faq' %}" class="button_primary w-button">Learn
+                            more</a></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="main-footer">
+    <div class="container-6 w-container">
+        <div class="footer-flex-container">
+            <div class="div-block-133"><img
+                    src="{%  static  'images/logonew3.png' %}"
+                    loading="lazy" alt="" class="c-footer__image">
+                <lii>
+                    <div><h6>Registered Office</h6></div>
+                    <strong></strong>
+                    <div>
+                        <h6>403, Chawla Complex, Sec-15,</h6>
+                    </div>
+                    <div>
+                        <h6>CBD Belapur,Navi Mumbai,</h6>
+                    </div>
+                    <div>
+                        <h6> Maharashtra – 400 614, India</h6>
+                    </div>
+                    <div>
+                        <h6>Help Center-+91-9776922923</h6>
+                    </div>
+
+                </lii>
+            </div>
+            <div><h6 class="footer-heading-2">Our Company</h6>
+                <ul role="list" class="w-list-unstyled">
+                    <li><a href="{% url 'aboutus' %}#companyOverview" class="footer-link-3">Company Overview</a>
+                    </li>
+                    <li><a href="{% url 'aboutus' %}#coreFeatures" class="footer-link-3">Core Features</a>
+                        <a href="{% url 'aboutus' %}#ourStrength" class="footer-link-3">Our Strength</a>
+                        <a href="{% url 'aboutus' %}#globalOperations" class="footer-link-3">Global Operations</a>
+                        <a href="{% url 'aboutus' %}#ourPartners" class="footer-link-3">Our Partners</a></li>
+                    <li><a class="footer-link-3" href="{% url 'video' %}">Our Articles</a></li>
+                </ul>
+            </div>
+            <div><h6 class="footer-heading-2">Our Activities</h6>
+                <ul role="list" class="w-list-unstyled">
+                    <li><a href="{% url 'video' %}" class="footer-link-3">Press</a>
+                        <a href="{% url 'rfq' %}" class="footer-link-3">RFQ</a>
+                        <a href="{% url 'faq' %}" class="footer-link-3">FAQ's</a>
+                        <a href="{% url 'contact' %}" class="footer-link-3">Contact us</a></li>
+                    <a href="{% url 'safedeal' %}" class="footer-link-3">Safe Deal</a></li>
+                    <a href="https://goimexindia.blogspot.com/" class="social-link">
+                        <i class="fab fa-blogger fa-1x">My Blog</i><span></span></a>
+                </ul>
+            </div>
+            <!----  <div><h2 class="footer-heading-2"><strong>Insights</strong></h2>
+                  <ul role="list" class="w-list-unstyled">
+                      <li><a href="{% url 'home' %}" class="footer-link-3">Articles</a></li>
+                      <li><a href="{% url 'home' %}" class="footer-link-3">Events</a></li>
+                      <li><a href="{% url 'home' %}" class="footer-link-3">Product updates</a></li>
+                  </ul>
+              </div>----->
+            <div><h6 class="footer-heading-2">Follow us</h6>
+                <ul role="list" class="w-list-unstyled">
+                    <a href="https://www.facebook.com/people/Goimex-India/100069323912089/"
+                       class="social-link"><i
+                            class="fab fa-facebook fa-3x"></i><span></span></a>
+
+
+                    <a href="https://www.instagram.com/goimex/" class="social-link"><i
+                            class="fab fa-instagram fa-2x"></i><span></span></a>
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+
+                    <a href="https://www.linkedin.com/company/goimexindia" class="social-link"><i
+                            class="fab fa-linkedin fa-2x"></i><span></span></a>
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    <a href="https://youtube.com/channel/UCHkl9HEgOFrj5XeQfEcb2rg" class="social-link"><i
+                            class="fab fa-youtube fa-2x"></i><span></span></a>
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </ul>
+            </div>
+
+            <div><h2 class="footer-heading-2"></h2>
+
+
+            </div>
+        </div>
+        <div class="c1-footer_copyright w-clearfix">
+            <div class="c1-footer_copyright__links w-clearfix"><a href="{% url 'terms' %}" target="_blank"
+                                                                  class="text_link">Terms &amp; Policies<br></a>
+                <link rel="prefetch" href="/terms-and-policy/terms-of-use">
+                <a href="{% url 'terms' %}" class="text_link">Privacy policy<br></a>
+            </div>
+            <div class="c-footer_copyright__text w-clearfix">
+                <p class="text-center">© Copyright 2021 Goimex Global Pvt. Ltd.
+                    All rights
+                    reserved.| Design by <a href="https://vits.herokuapp.com/">Varun Incorporate</a></p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
 
