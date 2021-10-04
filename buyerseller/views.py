@@ -149,7 +149,7 @@ class EcomerceView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(EcomerceView, self).get_context_data(**kwargs)
         all_products = Product.objects.filter(status=1).order_by("-id")
-        paginator = Paginator(all_products, 20)
+        paginator = Paginator(all_products, 32)
         page_number = self.request.GET.get('page')
         product_list = paginator.get_page(page_number)
         context['product_list'] = product_list
