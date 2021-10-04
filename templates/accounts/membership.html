@@ -1,10 +1,11 @@
-{% extends "blog/newbase.html" %}
+{% extends "blog/newbasefile.html" %}
 {% load crispy_forms_tags %}
 {% block title %}eCommerce{% endblock %}
 {% block content %}
 {% load static %}
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <style>
 .blue-color {
 color:blue;
@@ -21,8 +22,7 @@ color:yellow;
 .red-color {
 color:red;
 }
-</style>
-<style>
+
     .fa {
     color: #f2dd1d
 }
@@ -31,12 +31,6 @@ color:red;
     margin-left: 37%
 }
 
-
-
-
-
-</style>
-<style type="text/css">
     .company-index-banner1{
         background-image: url("/static/images/pic91.jpg");
         background-position: center center;
@@ -49,19 +43,41 @@ color:red;
 
 
 
-
-
 </style>
-<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
-
+<div class="container">
+    <section id="about">
+         <a href="/" title="Goimex Global Pvt. Ltd.">
+        <video width="100%" autoplay muted loop>
+            <source src="https://goimex-bucket.s3.us-east-2.amazonaws.com/v06.mp4" type="video/mp4">
+        </video>
+         </a>
+    </section>
+    <section id="about_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"></div>
+            </div>
+        </div>
+    </section>
+    <section id="about_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"></div>
+            </div>
+        </div>
+    </section>
+</div>
+<a href="/" title="Goimex Global Pvt. Ltd."><img alt="Goimex Global Pvt. Ltd." height="50"
+                                                 class="logo w-60 mt-1"
+                                                 src="{%  static  'images/GOIMEX.png' %}"></a>
 
 <section class="premium-pricing join-free-packages">
     <div class="container">
         <div class="row">
-            <img src="/static/images/pic91.jpg" alt="Trade World Wide"  style="width:100%;" >
+            <!-- <img src="/static/images/pic91.jpg" alt="Trade World Wide"  style="width:100%;" >-->
             <div class="col-12 text-center sec-heading d-none d-lg-block d-xl-block">
-             <!---   <h3>Our Premium <span>Packages</span></h3>
-                <h6>Premium Features and Ultimate Services</h6>--->
+                <!---   <h3>Our Premium <span>Packages</span></h3>
+                   <h6>Premium Features and Ultimate Services</h6>--->
             </div>
 
             <div class="table-responsive-lg w-100 d-none d-lg-block d-xl-block">
@@ -83,8 +99,8 @@ color:red;
                         <td style="background:none;" class="height2 gold-td">
                             <a href="#"
                                title="Gold Premium Service. Contact More Buyer and Grow your business. In only USD 1499 for 365 days.">
-                               <img src="/static/images/membersilver.png"
-                                                                      alt="Gold Premium Service. Contact More Buyer and Grow your business. In only USD 1499 for 365 days."
+                                <img src="/static/images/membersilver.png"
+                                     alt="Gold Premium Service. Contact More Buyer and Grow your business. In only USD 1499 for 365 days."
                                      class="lazy" style="">
                             </a>
                         </td>
@@ -106,10 +122,10 @@ color:red;
                                      class="lazy" style="">
                             </a>
                         </td>
-                        <td style="background:none;"  class="height2 exclusive-td">
+                        <td style="background:none;" class="height2 exclusive-td">
                             <a href="#"
                                title="Exclusive Premium Service. Contact More Buyer and Grow your business. In only USD 7999 for 365 days.">
-                                   <img src="/static/images/exclusive.png"
+                                <img src="/static/images/exclusive.png"
                                      alt="Exclusive Premium Service. Contact More Buyer and Grow your business. In only USD 7999 for 365 days."
                                      class="lazy" style="">
                             </a>
@@ -168,14 +184,16 @@ color:red;
                             Connected Buyers
                         </td>
                         <td width="170">
-                          Connected 1 & 2 Level  Buyers
+                            Connected 1 & 2 Level Buyers
                         </td>
                         <td width="170">
-                            Connected 1  Level  Buyers
+                            Connected 1 Level Buyers
                         </td>
                     </tr>
                     <tr>
-                        <td class="td3 packageComponentSubHeading">No. of Product / Service displayed on Priority ranking</td>
+                        <td class="td3 packageComponentSubHeading">No. of Product / Service displayed on Priority
+                            ranking
+                        </td>
                         <td width="170">
                             25
                         </td>
@@ -564,7 +582,7 @@ color:red;
                             <i class="fas fa-check text-success"></i>
                         </td>
                     </tr>
-                     <tr class="price bold market">
+                    <tr class="price bold market">
                         <td class="td3">Annual Price</td>
                         <td><span class="mony"><font class="india-pre">USD $</font><font class="font18 premium-price">299</font></span>
                         </td>
@@ -578,16 +596,21 @@ color:red;
                         </td>
                     </tr>
                     <tr class="price bold market">
-                        <td class="td3">FOR INDIAN SELLERS  ( Annually )</td>
-                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span> </font><font class="font18 premium-price">9999</font></span>
+                        <td class="td3">FOR INDIAN SELLERS ( Annually )</td>
+                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span> </font><font
+                                class="font18 premium-price">9999</font></span>
                         </td>
-                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span></font><font class="font18 premium-price">18999</font></span>
+                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span></font><font
+                                class="font18 premium-price">18999</font></span>
                         </td>
-                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span></font><font class="font18 premium-price">36999</font></span>
+                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span></font><font
+                                class="font18 premium-price">36999</font></span>
                         </td>
-                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span></font><font class="font18 premium-price">54999</font></span>
+                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span></font><font
+                                class="font18 premium-price">54999</font></span>
                         </td>
-                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span></font><font class="font18 premium-price">81999</font></span>
+                        <td><span class="mony"><font class="india-pre">INR <span>&#8377;</span></font><font
+                                class="font18 premium-price">81999</font></span>
                         </td>
                     </tr>
                     <tr id="premiumPackageCallToAction">
