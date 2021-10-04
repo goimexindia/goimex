@@ -121,7 +121,7 @@ def register(request):
         if form.is_valid():
             email = request.POST['email']
             user = form.save(commit=False)
-            user.is_active = True
+            user.is_active = False
             user.save()
 
             current_site = get_current_site(request)
