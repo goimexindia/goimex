@@ -17,16 +17,18 @@ def validate_email(value):
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(max_length=200, help_text='Required', validators=[validate_email])
-    #email = forms.EmailField(max_length=200, help_text='Required')
+
+    # email = forms.EmailField(max_length=200, help_text='Required')
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
 
 class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
+    email = forms.EmailField(disabled=True)
     first_name = forms.CharField()
     last_name = forms.CharField()
+    username = forms.CharField(disabled=True)
 
     class Meta:
         model = User

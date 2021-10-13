@@ -102,27 +102,13 @@
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7">
             <a href="{% url 'contact' %}" class="btnChat"><img
-                    src="https://www.eworldtrade.com/2K19/images/member/dashboardbanner2.png" alt="Customer Service"
+                    src="{% static 'images/dash1.png' %}" alt="Customer Service"
                     class="img-responsive"></a>
         </div>
     </div>
 </div>
 <div>
-    <div style="padding-top: 20px;">
 
-        <ul style="display: inline;">
-            <li style="display: inline;">Premium Services</li>
-            <li style="display: inline;"><a  href="{% url 'membership' %}"  title="Gold"><img
-                    src="https://www.eworldtrade.com/assets/images/service-gold.png" alt="Gold"></a></li>
-            <li style="display: inline;"><a  href="{% url 'membership' %}"  title="Platinum"><img
-                    src="https://www.eworldtrade.com/assets/images/service-platinum.png" alt="Platinum"></a></li>
-            <li style="display: inline;"><a  href="{% url 'membership' %}"  title="Platinum Plus"><img
-                    src="https://www.eworldtrade.com/assets/images/service-platinum-plus.png" alt="Platinum Plus"></a>
-            </li>
-            <li style="display: inline;"><a  href="{% url 'membership' %}"  title="Exclusive"><img
-                    src="https://www.eworldtrade.com/assets/images/service-exclusive.png" alt="Exclusive"></a></li>
-        </ul>
-    </div>
 
 </div>
 {% endblock content %}
