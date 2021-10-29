@@ -1,0 +1,161 @@
+{% load static %}
+{% load custom_tags %}
+<title>Goimex Global Pvt Ltd</title>
+<link href="{% static 'css/search.css' %}" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"/>
+<link href="{% static 'css/app_min.css' %}" media="all" rel="stylesheet" type="text/css">
+<link href="{% static 'fonts/icomoon1.ttf?smr7yk' %}" as="font" rel="preload" type="font/ttf">
+<link href="{% static 'fonts/fa-solid-900.woff2' %}" rel="preload" type="font/woff2">
+<link href="{% static 'fonts/fa-brands-400 .woff2' %}" rel="preload" type="font/woff2">
+<link href="{% static 'fonts/fa-regular-400 .woff2' %}" rel="preload" type="font/woff2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="{% static 'fonts/lato-v15-latin-300.woff2' %}" rel="preload" type="font/woff2">
+<!-- <link href="{% static 'css/renderBlocking.min.css' %}" media="all" rel="stylesheet" type="text/css"> -->
+<link href="{% static 'css/responsive.min.css' %}" id="responsiveCss" media="screen and (max-width: 1199px)"
+      rel="stylesheet" type="text/css">
+{% include 'blog/snippets/base_css.html' %}
+<body style="background-color:transparent">
+
+<section class="container mb-2 mt-5">
+    <div class="box-shadow">
+        <div class="row">
+            <div class="col-md-7">
+                <h3 class="top-heading text-uppercase">Can't find the <span>products</span> that meets your requirement
+                    exactly?</h3>
+                <div class="row">
+                    <div class="col-md-6 pr-md-2">
+                        <div class="connect-buyer text-center">
+                            <img src="{%  static  'images/test001.jpg'  %}"
+                             onerror="this.onerror=null; this.src='/static/images/no_image.jpg'"
+                             alt="" onContextMenu="return false;"
+                             style="height: 100px; object-fit: contain;">
+
+                            <h6 class="text-uppercase">Trade with<br>
+                                <span>Confidence</span></h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-md-2">
+                        <div class="connect-buyer text-center">
+     <img src="{%  static  'images/test002.png'  %}"
+                             onerror="this.onerror=null; this.src='/static/images/no_image.jpg'"
+                             alt="" onContextMenu="return false;"
+                             style="height: 100px; object-fit: contain;">
+                            <h6 class="text-uppercase">Free quotes from<br>
+                                <span>Sellers</span></h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pr-md-2">
+                        <div class="connect-buyer text-center">
+                           <!-- <img alt="Verified Connected Buyers" class="lazy"
+                                 data-src="{%  static  'images/quote/verified-connected-buyers.svg' %}" height="80"
+                                 src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
+                                 width="80">--->
+                             <img src="{%  static  'images/test003.png'  %}"
+                             onerror="this.onerror=null; this.src='/static/images/no_image.jpg'"
+                             alt="" onContextMenu="return false;"
+                             style="height: 100px; object-fit: contain;">
+                            <h6 class="text-uppercase">Verified Connected<br>
+                                <span>Buyers</span></h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-md-2">
+                        <div class="connect-buyer text-center">
+                           <!-- <img alt="24/7 Help Center" class="lazy"
+                                 data-src="{%  static  'images/quote/24-7-help-center.svg' %}" height="80"
+                                 src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
+                                 width="80">--->
+                             <img src="{%  static  'images/test004.jpg'  %}"
+                             onerror="this.onerror=null; this.src='/static/images/no_image.jpg'"
+                             alt="" onContextMenu="return false;"
+                             style="height: 100px; object-fit: contain;">
+                            <h6 class="text-uppercase">24/7<br>
+                                <span>Help Center</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <section class="tell-us-what-you-section productQuoteRegister mt-2">
+                    <h6>Tell Us What You <span>NEED</span></h6>
+                    <form action="{% url 'whatyouwant' %}" id="quoteForm1" method="POST" name="quoteForm1">
+                        {% csrf_token %}
+                        <input name="affiliate" type="hidden" value="1"><input name="signup-form" type="hidden"
+                                                                               value="yes"><input name="widget_source"
+                                                                                                  type="hidden"
+                                                                                                  value="quoteForm1"><input
+                            name="source" type="hidden" value="Organic"><input name="utm_campaign" type="hidden"
+                                                                               value=""><input name="utm_medium"
+                                                                                               type="hidden"
+                                                                                               value=""><input
+                            name="utm_source" type="hidden" value=""><input name="utm_content" type="hidden"
+                                                                            value=""><input name="utm_term"
+                                                                                            type="hidden"
+                                                                                            value=""><input
+                            name="fullpageurl" type="hidden"><input
+                            name="referrerurl" type="hidden" value=""><input name="pageurl" type="hidden"
+                                                                             value=""><input name="external_refferer"
+                                                                                             type="hidden"
+                                                                                             value=""><input
+                            name="ip2loc_ip" type="hidden" value="103.208.71.73"><input name="ip2loc_isp" type="hidden"
+                                                                                        value=""><input
+                            name="ip2loc_org" type="hidden" value=""><input name="ip2loc_country" type="hidden"
+                                                                            value="India"><input name="ip2loc_region"
+                                                                                                 type="hidden"
+                                                                                                 value="MAHARASHTRA"><input
+                            name="ip2loc_city" type="hidden" value="MUMBAI"> <input name="_token" type="hidden"
+                                                                                    value="k5WAhvHR2Dvr1VGQCjuC7WvSC3SsYOPcvniqmr8C">
+                        <input name="quickregister" type="hidden" value="yes"> <input name="password" type="hidden"
+                                                                                      value="JvbTpmBaZl">
+                        <div class="form-row mt-3">
+                            <div class="col-sm-12">
+                                <label>Requirements</label> <input autocomplete="off" class="form-control"
+                                                                   name="products_want"
+                                                                   placeholder="Enter product/service name" required=""
+                                                                   title="Comma seperated keywords" type="text">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Name</label> <input autocomplete="name" class="form-control" name="full_name"
+                                                           placeholder="Full Name" required=""
+                                                           title="Please enter your Full Name here" type="text">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Email</label> <input autocomplete="email" class="form-control" name="email"
+                                                            placeholder="name@company.com" required=""
+                                                            title="Please enter your Email Address here" type="email">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Company</label> <input autocomplete="organization" class="form-control"
+                                                              name="company_name" placeholder="Company Name" required=""
+                                                              title="Please enter your Company Name here" type="text">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Phone Number</label> <input class="form-control tel" maxlength="30"
+                                                                   name="phone_number" placeholder="Phone / Mobile"
+                                                                   required=""
+                                                                   title="Please enter your Phone or Mobile Number here"
+                                                                   type="tel">
+                            </div>
+                            <div class="col-md-12">
+                                <label>I am a</label> <select class="form-control" name="type" required="">
+                                <option selected value="seller">
+                                    Seller
+                                </option>
+                                <option value="buyer">
+                                    Buyer
+                                </option>
+                            </select>
+                            </div>
+                            <div class="col-12 form-p-0 text-center">
+                                <button class="btn btn-outline-danger" type="submit">Submit</button>
+                            </div>
+                            <p class="text-center"><span>*</span> To achieve our mission we provide all the necessary
+                                functionalities to buyers and sellers that help them in developing the voice of their
+                                business and to expand worldwide.</p>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
