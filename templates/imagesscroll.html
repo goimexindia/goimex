@@ -12,6 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+<script>
+
+</script>
 
 <div class="container">
     <h2>Fastest growing B2B Network</h2>
@@ -22,7 +25,6 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-
         <!-- Wrapper for slides -->
         {% for dest in prod %}
         <div class="carousel-inner">
@@ -30,6 +32,7 @@
                 <img src="{{dest.img.url}}" alt="{{dest.desc}}" style="width:100%;">
             </div>
         </div>
+
         {% endfor %}
 
 

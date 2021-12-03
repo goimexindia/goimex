@@ -16,6 +16,7 @@ from pathlib import Path
 from decouple import config, Csv
 from unipath import Path
 from .sec import *
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -99,6 +100,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'django_auto_logout.middleware.auto_logout',
 ]
 
 ROOT_URLCONF = 'goimex.urls'
@@ -310,3 +312,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'goimex113@gmail.com'
 EMAIL_HOST_PASSWORD = 'wmfmrerzajgwtbfs'
 
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=5),
+    'SESSION_TIME': timedelta(minutes=30),
+    'MESSAGE': 'The session has expired. Please login again to continue.',
+}

@@ -23,7 +23,7 @@
                 <tr class="table-primary">
                     <td>{{forloop.counter}}</td>
                     <td><a href="{{p.image.url}}" target="_blank"><img src="{{product.image.url}}" target="_blank"
-                                                                       style="height: 60px;" alt=""></td>
+                                                                       style="height: 60px;" alt=""></a></td>
                     <td><small>{{ product.title }}<small></small></td>
                     <td>{{ product.keyfeatures|slice:":100"|safe }}</td>
                     <td><small>{{ product.description|striptags|truncatechars:140 }}</small></td>
