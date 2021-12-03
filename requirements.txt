@@ -18,6 +18,7 @@ defusedxml==0.7.1
 dj-database-url==0.5.0
 Django==3.1.7
 django-allauth==0.45.0
+django-auto-logout==0.5.0
 django-ckeditor==6.0.0
 django-countries==7.1
 django-crispy-forms==1.11.2
