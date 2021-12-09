@@ -313,7 +313,7 @@ EMAIL_HOST_USER = 'goimex113@gmail.com'
 EMAIL_HOST_PASSWORD = 'wmfmrerzajgwtbfs'
 
 AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(minutes=5),
-    'SESSION_TIME': timedelta(minutes=30),
+    'IDLE_TIME': timedelta(minutes=50),
+    'SESSION_TIME': timedelta(minutes=100),
     'MESSAGE': 'The session has expired. Please login again to continue.',
 }
