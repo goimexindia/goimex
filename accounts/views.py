@@ -43,7 +43,6 @@ from verify_email.email_handler import send_verification_email
 from django.utils.encoding import force_bytes
 
 from django.shortcuts import render
-import razorpay
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest
