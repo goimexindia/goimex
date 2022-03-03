@@ -1,0 +1,6 @@
+#!E:\Users\admin\PycharmProjects\shubhshaadivivah\rnv\Scripts\python.exe
+
+from hierarchy import cli
+
+if __name__ == '__main__':
+    cli.main()
